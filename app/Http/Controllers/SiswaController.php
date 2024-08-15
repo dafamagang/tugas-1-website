@@ -11,7 +11,8 @@ class SiswaController extends Controller
     {
         Siswa::create([
             'nama' => $request->input('nama'),
-            'ttl' => $request->input('ttl'),
+            'tempat_lahir' => $request->input('tempat_lahir'),
+            'tanggal_lahir' => $request->input('tanggal_lahir'),
             'sekolah' => $request->input('sekolah'),
             'keterangan' => $request->input('keterangan'),
         ]);
@@ -29,5 +30,13 @@ class SiswaController extends Controller
         Siswa::where('id', $id)->delete();
 
         return redirect()->back()->with('success', 'Data siswa berhasil ditambahkan!');
+    }
+
+    public function search(Request $request)
+    {
+        $query = $request->input('query');
+        $siswas = Siswa::where('nama', 'LIKE', '%' . $query . '%')->get();
+    
+        return view('data_siswa', ['data_siswa' => $siswas]);
     }
 }

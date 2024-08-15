@@ -18,7 +18,8 @@ class SiswaFactory extends Factory
     {
         return [
             'nama' => $this->faker->name,
-            'ttl'=> $this->faker->date('Y-m-d'), 
+            'tempat_lahir' => $this->faker->city,
+            'tanggal_lahir'=> $this->faker->date('Y-m-d'), 
             'sekolah'=> $this->faker->company,
             'keterangan'=> $this->faker->text,
         ];

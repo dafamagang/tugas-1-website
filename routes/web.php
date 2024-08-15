@@ -12,4 +12,6 @@ Route::post('/tambah_siswa', [SiswaController::class,'store']);
 Route::put('/edit_siswa/{id}', [SiswaController::class,'update']);
 
 Route::delete('/siswa/{id}', [SiswaController::class, 'delete']);
+Route::get('/search', [SiswaController::class, 'search']);
+
 
